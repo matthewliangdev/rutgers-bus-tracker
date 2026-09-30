@@ -1,11 +1,11 @@
 """
-explore.py — quick script to inspect live TripShot data for every route
-in routes.py. Prints only the fields the app actually needs (vehicle name,
-position, bearing, last-update time) instead of dumping raw JSON.
+explore.py — quick script to test the inspect of live TripShot data for every
+route in routes.py. Prints only the fields the app actually needs (vehicle
+name, position, bearing, last-update time) instead of dumping raw JSON.
 
 Usage:
     python explore.py            # check every route
-    python explore.py LX         # check just one route by name
+    python explore.py [route]    # checks user input route
 """
 
 import sys
@@ -56,7 +56,6 @@ def fetch_live_vehicles(route_name: str, route_id: str):
 
 def main():
     # Optional: pass a route name as a CLI arg to check just one route.
-    # e.g. `python explore.py LX`
     if len(sys.argv) > 1:
         name = sys.argv[1]
         if name not in ROUTES:
